@@ -15,10 +15,18 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(exclude = {"ingredients", "notes"})
 public class Recipe {
 
   @Id
@@ -52,4 +60,15 @@ public class Recipe {
 
   @OneToOne(cascade = CascadeType.ALL)
   private Notes notes;
+
+  public void setNotes(Notes notes) {
+    this.notes = notes;
+    notes.setRecipe(this);
+  }
+
+  public Recipe addIngredient(Ingredient ingredient) {
+    ingredient.setRecipe(this);
+    ingredients.add(ingredient);
+    return this;
+  }
 }
