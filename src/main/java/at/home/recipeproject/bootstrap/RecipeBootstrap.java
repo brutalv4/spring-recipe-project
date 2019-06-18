@@ -61,9 +61,12 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     // Yummy Guac
     Recipe guacRecipe = new Recipe();
     guacRecipe.setDescription("Perfect Guacamole");
+    guacRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole");
     guacRecipe.getCategories().addAll(Arrays.asList(american, mexican));
     guacRecipe.setPrepTime(10);
     guacRecipe.setCookTime(0);
+    guacRecipe.setServings(4);
+    guacRecipe.setSource("www.simplyrecipes.com");
     guacRecipe.setDifficulty(Difficulty.EASY);
     guacRecipe.setDirections(
         "1 Cut avocado, remove flesh: Cut the avocados in half. Remove seed. Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon. (See How to Cut and Peel an Avocado.) Place in a bowl.\n"
@@ -116,9 +119,12 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     // Yummy Tacos
     Recipe tacosRecipe = new Recipe();
     tacosRecipe.setDescription("Spicy Grilled Chicken Tacos");
+    tacosRecipe.setUrl("https://www.simplyrecipes.com/recipes/spicy_grilled_chicken_tacos");
     tacosRecipe.getCategories().addAll(Arrays.asList(american, mexican));
     tacosRecipe.setCookTime(9);
     tacosRecipe.setPrepTime(20);
+    tacosRecipe.setServings(4);
+    tacosRecipe.setSource("www.simplyrecipes.com");
     tacosRecipe.setDifficulty(Difficulty.MODERATE);
 
     tacosRecipe.setDirections("1 Prepare a gas or charcoal grill for medium-high, direct heat.\n"

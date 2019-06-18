@@ -3,6 +3,7 @@ package at.home.recipeproject.services;
 import at.home.recipeproject.domain.Recipe;
 import at.home.recipeproject.repositories.RecipeRepository;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,11 @@ public class RecipeServiceImpl implements RecipeService {
     Set<Recipe> recipeSet = new HashSet<>();
     recipeRepository.findAll().iterator().forEachRemaining(recipeSet::add);
     return recipeSet;
+  }
+
+  @Override
+  public Recipe findById(long id) {
+    return recipeRepository.findById(id)
+        .orElseThrow(() -> new RuntimeException("Recipe not found!"));
   }
 }
